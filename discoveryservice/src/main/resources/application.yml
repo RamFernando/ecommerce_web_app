@@ -1,0 +1,29 @@
+server:
+  port: 8761
+  
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+
+zuul:
+  routes:
+    category:
+      path: /services/category/**
+      url: http://localhost:8083
+
+    oauth:
+      path: /oauth/**
+      url: http://localhost:8085
+
+    order:
+      path: /services/order/**
+      url: http://localhost:8084
+
+    product:
+      path: /services/product/**
+      url: http://localhost:8082
+
+#    user:
+#      path: /services/customer/**
+#      url: http://localhost:8081
